@@ -12,7 +12,7 @@ class Film:
   def get_actors(self, db):
     # retourne la liste des acteurs du film
     actors = []
-    for elem in db.films.find_one(self.id)["actors"]:
+    for elem in db.films.find_one({"imdb_id" : "{}".format(self.id)})["actors"]:
       actors.append(elem)
 
     return actors
